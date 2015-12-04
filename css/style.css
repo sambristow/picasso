@@ -1,0 +1,152 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+body {
+	font-family: "Open Sans", Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	text-align: center;
+	color: #333333;
+	transition: background-color 0.5s;
+}
+
+/*JS background colour classes - Add these in the order that you want these to be added in your html. Our colour changes only work because of the order in our CSS*/
+.blue {
+	background-color: #b8d7e8;
+}
+.rose {
+	background-color: #eca0a0;
+}
+.cubism {
+	background: #b094fa;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	/* use a temp colour to demonstrate as background is same colour */
+	background-color: #ffffff;
+	padding: 20px 0;
+	/* z-index allows for moving content on the z-axis similar to layers in photoshop */
+	z-index: 10;
+}
+
+nav a {
+	color: #333333;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0 10px 0 10px;
+
+	/* add after hover state added */
+	transition: color 0.25s;
+}
+
+nav a:hover {
+	color: #5AA2BA;
+}
+
+/* Have padding on the section so the anchor links work better */
+.container {
+	/* there is padding set on .container from the lanes css file, using padding-top will allow this to overide fot the top but not left and write*/
+	padding-top: 150px;
+}
+
+hr {
+	/* remove the border from the hr tag as by default it has a weird inset ugly border */
+	border: none;
+	border-bottom: solid #000000 1px;
+	width: 100px;
+	margin-bottom: 50px;
+}
+
+h2 {
+	font-size: 24px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	margin: 0 0 20px 0;
+}
+
+.date {
+	letter-spacing: 2px;
+	color: #B7BBBB;
+}
+
+p {
+	margin: 25px 0 50px 0;
+}
+
+/* seperate the image in columns with two images stacked */
+.top-image {
+	margin: 0 0 10px 0;
+}
+
+/* add the caption for each image correcting absolute positioning */
+.columns {
+	position: relative;
+}
+
+/* adding a caption for the top image is more difficult.
+   Positioning relatively would really need another div around each image but that is alot of extra markup */
+.caption {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	background-color: #ffffff;
+	padding: 5px 10px;
+}
+
+blockquote {
+	font-size: 25px;
+	font-weight: 300;
+}
+
+footer {
+	padding: 50px 0 50px 0;
+}
+
+footer img {
+	/* set the width for the footer image and a border radius to round it off */
+	width: 120px;
+	border-radius: 60px;
+}
+
+/* Add the hover effect for images */
+
+/* add selector if animating the caption too -
+ section img + span { transition: all 0.25s ease; cursor: pointer; }*/
+
+section img {
+  transition: all 0.25s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+section img:hover {
+  box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.25);
+  /*transform: scale(1.005);*/
+	/*the transform property allows us to manipulate elements in a variety of ways. We can scale, skew, rotate and translate our elements. scale(20) increases the size of an element by 20 times. skew(25deg) will slant the element byt the degres given. rotate(180deg) will roate the elemen by the degrees given. translate(10px, 5px) will move the element away from its normal position*/
+	transform: translateY(-5px);
+}
+
+#lightbox {
+	background-color: rgba(255, 255, 255, 0.7);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	/*Hide the lightbox until we click on an image*/
+	display: none;
+}
+
+#lightbox img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*Instead of using Margins and manually calculating half width and height, we use translate and -50% -50%, which moves our image into place, regardless of size.*/
+	transform: translate(-50%, -50%);
+	max-width: 90%;
+}
